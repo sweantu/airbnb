@@ -57,3 +57,10 @@ sudo apt-get update && sudo apt-get install -y terraform
 terraform -version
 ```
 
+#### Github
+```bash
+ssh-keygen -t rsa -b 4096 -C "sweantu@gmail.com"
+cat ~/.ssh/id_rsa.pub
+ssh -T git@github.com
+git clone git@github.com:sweantu/airbnb.git
+```
