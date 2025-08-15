@@ -62,5 +62,7 @@ terraform -version
 ssh-keygen -t rsa -b 4096 -C "sweantu@gmail.com"
 cat ~/.ssh/id_rsa.pub
 ssh -T git@github.com
+git config --global user.email "sweantu@gmail.com"
+git config --global user.name "Anh Tu"
 git clone git@github.com:sweantu/airbnb.git
 ```
