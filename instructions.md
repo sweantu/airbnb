@@ -20,6 +20,7 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 conda create -n py311 python=3.11 -y
 conda activate py311
+conda install pandas
 ```
 
 #### Notebook
