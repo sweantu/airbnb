@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: staging
+    database: airbnb-468005
+    schema: airbnb_468005_dataset
+
+    tables:
+      - name: fhv_tripdata
+      - name: green_tripdata
+      - name: yellow_tripdata
