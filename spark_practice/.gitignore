@@ -1,2 +1,5 @@
-fhvfv  
+fhvfv
+data
 *.csv
+*.gz
+*.parquet
