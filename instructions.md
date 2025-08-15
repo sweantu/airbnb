@@ -66,3 +66,11 @@ git config --global user.email "sweantu@gmail.com"
 git config --global user.name "Anh Tu"
 git clone git@github.com:sweantu/airbnb.git
 ```
+#### Service account
+```bash
+scp .keys/airbnb-468005-b68cd81995fd.json airbnb:~/
+mkdir -p ~/.keys
+mv ~/airbnb-468005-b68cd81995fd.json ~/.keys/
+chmod 600 ~/.keys/airbnb-468005-b68cd81995fd.json
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.keys/airbnb-468005-b68cd81995fd.json"
+```
