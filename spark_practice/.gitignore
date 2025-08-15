@@ -1,5 +1,8 @@
+tmp
+zones
 fhvfv
 data
 *.csv
 *.gz
 *.parquet
+*.jar
