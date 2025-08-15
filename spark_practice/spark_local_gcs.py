@@ -22,7 +22,6 @@ credentials_location = "/home/sweantu/.keys/airbnb-468005-b68cd81995fd.json"
 
 conf = (
     SparkConf()
-    .setMaster("local[*]")
     .setAppName("test")
     .set("spark.jars", "gcs-connector-hadoop3-latest.jar")
     .set("spark.hadoop.google.cloud.auth.service.account.enable", "true")

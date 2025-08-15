@@ -20,7 +20,19 @@ spark-submit \
     spark_local.py \
     --input_green=data/pq/green/2021/* \
     --input_yellow=data/pq/yellow/2021/* \
-    --output=data/report-2021
+    --output=data/report-2021-2
+
+python spark_local_gcs.py \
+    --input_green=gs://airbnb-468005-bucket/spark_practice/data/pq/green/*/* \
+    --input_yellow=gs://airbnb-468005-bucket/spark_practice/data/pq/yellow/*/* \
+    --output=gs://airbnb-468005-bucket/spark_practice/data/report-2021
+
+spark-submit \
+    --master=${URL} \
+    spark_local_gcs.py \
+    --input_green=gs://airbnb-468005-bucket/spark_practice/data/pq/green/*/* \
+    --input_yellow=gs://airbnb-468005-bucket/spark_practice/data/pq/yellow/*/* \
+    --output=gs://airbnb-468005-bucket/spark_practice/data/report-2021-2
 
 ./sbin/stop-worker.sh
 ./sbin/stop-master.sh
