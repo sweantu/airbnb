@@ -27,6 +27,7 @@ python spark_local_gcs.py \
     --input_yellow=gs://airbnb-468005-bucket/spark_practice/data/pq/yellow/*/* \
     --output=gs://airbnb-468005-bucket/spark_practice/data/report-2021
 
+wget https://storage.googleapis.com/hadoop-lib/gcs/gcs-connector-hadoop3-latest.jar
 spark-submit \
     --master=${URL} \
     --jars /home/sweantu/code/airbnb/spark_practice/gcs-connector-hadoop3-latest.jar \
@@ -35,14 +36,14 @@ spark-submit \
     --input_yellow=gs://airbnb-468005-bucket/spark_practice/data/pq/yellow/*/* \
     --output=gs://airbnb-468005-bucket/spark_practice/data/report-2021-2
 
-wget https://storage.googleapis.com/spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.36.1.jar
+wget https://repo1.maven.org/maven2/com/google/cloud/spark/spark-bigquery-with-dependencies_2.13/0.28.1/spark-bigquery-with-dependencies_2.13-0.28.1.jar
 spark-submit \
     --master=${URL} \
-    --jars /home/sweantu/code/airbnb/spark_practice/gcs-connector-hadoop3-latest.jar,/home/sweantu/code/airbnb/spark_practice/spark-bigquery-with-dependencies_2.12-0.36.1.jar \
+    --jars /home/sweantu/code/airbnb/spark_practice/gcs-connector-hadoop3-latest.jar,/home/sweantu/code/airbnb/spark_practice/spark-bigquery-with-dependencies_2.13-0.28.1.jar \
     spark_local_gcs_bigquery.py \
     --input_green=gs://airbnb-468005-bucket/spark_practice/data/pq/green/*/* \
     --input_yellow=gs://airbnb-468005-bucket/spark_practice/data/pq/yellow/*/* \
-    --output_bq=airbnb-468005:airbnb_468005_dataset.report_2021
+    --output=airbnb-468005:airbnb_468005_dataset.report_2021
 
 ./sbin/stop-worker.sh
 ./sbin/stop-master.sh
