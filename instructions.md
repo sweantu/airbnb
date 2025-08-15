@@ -74,3 +74,19 @@ mv ~/airbnb-468005-b68cd81995fd.json ~/.keys/
 chmod 600 ~/.keys/airbnb-468005-b68cd81995fd.json
 export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.keys/airbnb-468005-b68cd81995fd.json"
 ```
+
+#### Spark
+```bash
+sudo apt update
+sudo apt install openjdk-17-jdk -y
+echo 'export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64' >> ~/.bashrc
+java -version
+wget https://archive.apache.org/dist/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3-scala2.13.tgz
+tar xvf spark-3.5.1-bin-hadoop3-scala2.13.tgz
+sudo mv spark-3.5.1-bin-hadoop3-scala2.13 /opt/spark
+echo 'export SPARK_HOME=/opt/spark' >> ~/.bashrc
+echo 'export PATH=$SPARK_HOME/bin:$PATH' >> ~/.bashrc
+echo 'export PYSPARK_PYTHON=python3' >> ~/.bashrc
+echo 'export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH' >> ~/.bashrc
+echo 'export PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.10.9.7-src.zip:$PYTHONPATH' >> ~/.bashrc
+```
