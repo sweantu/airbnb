@@ -29,6 +29,7 @@ python spark_local_gcs.py \
 
 spark-submit \
     --master=${URL} \
+    --jars /home/sweantu/code/airbnb/spark_practice/gcs-connector-hadoop3-latest.jar \
     spark_local_gcs.py \
     --input_green=gs://airbnb-468005-bucket/spark_practice/data/pq/green/*/* \
     --input_yellow=gs://airbnb-468005-bucket/spark_practice/data/pq/yellow/*/* \
