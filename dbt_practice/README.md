@@ -4,6 +4,7 @@ Welcome to your new dbt project!
 
 Try running the following commands:
 - dbt deps
+- dbt build --select +dm_monthly_zone_revenue
 - dbt run-operation generate_staging_yaml
 - dbt run
 - dbt test

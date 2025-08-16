@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: staging
-    database: airbnb-468005
-    schema: airbnb_468005_dataset
+    database: "{{ env_var('DBT_DATABASE', 'airbnb-468005') }}"
+    schema: "{{ env_var('DBT_SCHEMA', 'airbnb_468005_dataset') }}"
 
     tables:
       - name: fhv_tripdata
