@@ -20,7 +20,7 @@ variable "bucket_name" {
 
 variable "location" {
   description = "The location of the bucket to deploy resources to"
-  default = "us"
+  default = "us-central1"
 }
 
 
