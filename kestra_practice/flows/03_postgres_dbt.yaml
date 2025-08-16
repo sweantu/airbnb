@@ -30,7 +30,6 @@ tasks:
     taskRunner:
       type: io.kestra.plugin.scripts.runner.docker.Docker
       networkMode: kestra-net
-    autoRemove: true
     commands:
       - dbt deps
       - "{{ inputs.dbt_command }}"
