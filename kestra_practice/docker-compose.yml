@@ -24,3 +24,8 @@ services:
 
 volumes:
   postgres_data:
+
+networks:
+  default:
+    name: kestra-net
+    external: true

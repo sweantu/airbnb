@@ -11,8 +11,8 @@ inputs:
   - id: taxi
     type: SELECT
     displayName: Select taxi type
-    values: ["yellow", "green"]
-    defaults: "green"
+    values: [yellow, green]
+    defaults: yellow # green edit default to run
 
 variables:
   file: "{{inputs.taxi}}_tripdata_{{trigger.date | date('yyyy-MM')}}.csv"
