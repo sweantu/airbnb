@@ -12,16 +12,16 @@ tasks:
     type: io.kestra.plugin.core.kv.Set
     key: GCP_LOCATION
     kvType: STRING
-    value: US
+    value: us-central1
 
   - id: gcp_bucket_name
     type: io.kestra.plugin.core.kv.Set
     key: GCP_BUCKET_NAME
     kvType: STRING
-    value: airbnb-468005-bucket-kestra
+    value: airbnb-468005-bucket-kestra2
 
   - id: gcp_dataset
     type: io.kestra.plugin.core.kv.Set
     key: GCP_DATASET
     kvType: STRING
-    value: airbnb_468005_dataset_kestra
+    value: airbnb_468005_dataset_kestra2
