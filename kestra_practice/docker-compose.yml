@@ -2,25 +2,25 @@ services:
   postgres:
     image: postgres:16
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123456
-      POSTGRES_DB: airbnb
+      POSTGRES_USER: kestra
+      POSTGRES_PASSWORD: k3str4
+      POSTGRES_DB: postgres-zoomcamp
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
   kestra:
-    image: ghcr.io/kestra-io/kestra:latest-full
-    depends_on:
-      - postgres
+    image: kestra/kestra:v0.23.9
+    command: server local
+    user: root
     ports:
       - "8080:8080"
     volumes:
-      - ./data:/app/storage
-      - ./kestra.yml:/app/kestra.yml
-    environment:
-      KESTRA_CONFIGURATION: /app/kestra.yml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp:/tmp
+    depends_on:
+      - postgres
 
 volumes:
   postgres_data:
