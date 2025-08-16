@@ -6,9 +6,9 @@ inputs:
     allowCustomValue: true
     defaults: dbt build
     values:
+      - dbt build --select +dm_monthly_zone_revenue
       - dbt build
       - dbt debug # use when running the first time to validate DB connection
-      - dbt build --select +dm_monthly_zone_revenue
 tasks:
   - id: sync
     type: io.kestra.plugin.git.SyncNamespaceFiles
@@ -30,6 +30,7 @@ tasks:
     taskRunner:
       type: io.kestra.plugin.scripts.runner.docker.Docker
       networkMode: kestra-net
+    autoRemove: true
     commands:
       - dbt deps
       - "{{ inputs.dbt_command }}"
