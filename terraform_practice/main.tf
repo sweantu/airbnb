@@ -22,4 +22,5 @@ resource "google_storage_bucket" "terraform-bucket" {
 
 resource "google_bigquery_dataset" "terraform_dataset" {
   dataset_id = var.dataset_id
+  location   = var.location
 }
