@@ -1,0 +1,26 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: airbnb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  kestra:
+    image: ghcr.io/kestra-io/kestra:latest-full
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app/storage
+      - ./kestra.yml:/app/kestra.yml
+    environment:
+      KESTRA_CONFIGURATION: /app/kestra.yml
+
+volumes:
+  postgres_data:
