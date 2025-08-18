@@ -1,9 +1,11 @@
 #### Compute
+
 ```bash
 gcloud compute instances create instance-20250814-112447 --project=airbnb-468005 --zone=us-central1-c --machine-type=e2-medium --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default --maintenance-policy=MIGRATE --provisioning-model=STANDARD --service-account=542332305110-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/trace.append --create-disk=auto-delete=yes,boot=yes,device-name=instance-20250814-112447,image=projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20250805,mode=rw,size=30,type=pd-standard --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --labels=goog-ec-src=vm_add-gcloud --reservation-affinity=any
 ```
 
 #### Update packages
+
 ```bash
 sudo apt update
 sudo apt upgrade -y
@@ -11,6 +13,7 @@ sudo reboot
 ```
 
 #### Conda
+
 ```bash
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
@@ -24,12 +27,14 @@ conda install pandas
 ```
 
 #### Notebook
+
 ```bash
 conda install notebook
 jupyter notebook --ip=0.0.0.0
 ```
 
 #### Docker and docker compose
+
 ```bash
 sudo apt remove docker docker-engine docker.io containerd runc
 sudo apt update
@@ -49,6 +54,7 @@ sudo docker run hello-world
 ```
 
 #### Terraform
+
 ```bash
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
@@ -59,6 +65,7 @@ terraform -version
 ```
 
 #### Github
+
 ```bash
 ssh-keygen -t rsa -b 4096 -C "sweantu@gmail.com"
 cat ~/.ssh/id_rsa.pub
@@ -67,7 +74,9 @@ git config --global user.email "sweantu@gmail.com"
 git config --global user.name "Anh Tu"
 git clone git@github.com:sweantu/airbnb.git
 ```
+
 #### Service account
+
 ```bash
 scp .keys/airbnb-468005-b68cd81995fd.json airbnb:~/
 mkdir -p ~/.keys
@@ -77,6 +86,7 @@ export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.keys/airbnb-468005-b68cd81995fd.js
 ```
 
 #### Spark
+
 ```bash
 sudo apt update
 sudo apt install openjdk-17-jdk -y
